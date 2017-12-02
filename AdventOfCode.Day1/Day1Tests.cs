@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
@@ -7,26 +6,31 @@ namespace AdventOfCode.Day1.Tests
     public class TestDay1
     {
         private Day1 _day1;
-        private List<int> _workOn;
 
         public TestDay1()
         {
             _day1 = new Day1();
-            var input = FileReader.ReadFile("Day1.txt");
-            _workOn = input.Select(x => int.Parse(x.ToString())).ToList();
         }
 
         [Fact]
         public void GetResultToPart1()
         {
-            var result = _day1.ReviewSequenceBasedOnNextDigit(_workOn);
+            var input = FileReader.ReadFile("Day1.txt");
+
+            var workOn = input.Select(x => int.Parse(x.ToString())).ToList();
+            var result = _day1.ReviewSequenceBasedOnNextDigit(workOn);
+
             Assert.Equal(1182, result);
         }
 
         [Fact]
         public void GetResultToPart2()
         {
-            var result = _day1.ReviewSequenceBasedOnHalfWayAround(_workOn);
+            var input = FileReader.ReadFile("Day1.txt");
+
+            var workOn = input.Select(x => int.Parse(x.ToString())).ToList();
+            var result = _day1.ReviewSequenceBasedOnHalfWayAround(workOn);
+
             Assert.Equal(1152, result);
         }
 
@@ -39,6 +43,7 @@ namespace AdventOfCode.Day1.Tests
         {
             var workOn = input.Select(x => int.Parse(x.ToString())).ToList();
             var actualResult = _day1.ReviewSequenceBasedOnNextDigit(workOn);
+
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -52,6 +57,7 @@ namespace AdventOfCode.Day1.Tests
         {
             var workOn = input.Select(x => int.Parse(x.ToString())).ToList();
             var actualResult = _day1.ReviewSequenceBasedOnHalfWayAround(workOn);
+
             Assert.Equal(expectedResult, actualResult);
         }
     }

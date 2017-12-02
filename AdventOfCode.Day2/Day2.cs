@@ -30,14 +30,16 @@ namespace AdventOfCode.Day2
             var values = input.Split(" ").Select(int.Parse);
             int numberOfValues = values.Count();
 
-            foreach (var value in values)
+            for (var i = 0; i < numberOfValues; i++)
             {
-                for (var i = 0; i < numberOfValues; i++)
+                for (var j = 0; j < numberOfValues; j++)
                 {
-                    if ((value % values.ElementAt(i)) == 0 && (value != values.ElementAt(i)))
+                    if (i == j)
+                        continue;
+
+                    if (values.ElementAt(i) % values.ElementAt(j) == 0)
                     {
-                        var lineValue = value / values.ElementAt(i);
-                        _day2.Add(lineValue);
+                        _day2.Add(values.ElementAt(i) / values.ElementAt(j));
                         return;
                     }
                 }
