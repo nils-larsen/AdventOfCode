@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace AdventOfCode.Tests
+namespace AdventOfCode.Day1.Tests
 {
     public class TestDay1
     {
