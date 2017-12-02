@@ -1,24 +1,17 @@
-﻿using System.Collections.Generic;
 using Xunit;
 
 namespace AdventOfCode.Day2.Tests
 {
     public class TestDay2
     {
-        private CalculatePart1 _day2Part1Result;
-        private CalculatePart2 _day2Part2Result;
+        private CalculatePart1 _day2Part1Result = new CalculatePart1();
+        private CalculatePart2 _day2Part2Result = new CalculatePart2();
 
-        private CalculatePart1 _mockPart1Calculator;
-        private CalculatePart2 _mockPart2Calculator;
+        private CalculatePart1 _mockPart1Calculator = new CalculatePart1();
+        private CalculatePart2 _mockPart2Calculator = new CalculatePart2();
 
         public TestDay2()
         {
-            _day2Part1Result = new CalculatePart1();
-            _day2Part2Result = new CalculatePart2();
-
-            _mockPart1Calculator = new CalculatePart1();
-            _mockPart2Calculator = new CalculatePart2();
-
             foreach (string line in FileReader.ReadLinesFromFile("Day2.txt"))
             {
                 _day2Part1Result.AddChecksumOnEachLine(line);
@@ -41,7 +34,9 @@ namespace AdventOfCode.Day2.Tests
         }
 
         [Theory]
-        [MemberData(nameof(DataGenerator.GetNumbersPart1), MemberType = typeof(DataGenerator))]
+        [InlineData("5 1 9 5", 8)]
+        [InlineData("7 5 3", 4)]
+        [InlineData("2 4 6 8", 6)]
         public void TestSampleDataPart1(string input, int expectedResult)
         {
             _mockPart1Calculator.AddChecksumOnEachLine(input);
@@ -50,7 +45,9 @@ namespace AdventOfCode.Day2.Tests
         }
 
         [Theory]
-        [MemberData(nameof(DataGenerator.GetNumbersPart2), MemberType = typeof(DataGenerator))]
+        [InlineData("5 9 2 8", 4)]
+        [InlineData("9 4 7 3", 3)]
+        [InlineData("3 8 6 5", 2)]
         public void TestSampleDataPart2(string input, int expectedResult)
         {
             _mockPart2Calculator.AddSumFromEvenDivisors(input);
@@ -66,23 +63,6 @@ namespace AdventOfCode.Day2.Tests
             _mockPart1Calculator.AddChecksumOnEachLine("2 4 6 8");
             var actualCheckSum = _mockPart1Calculator.CalculateSum();
             Assert.Equal(18, actualCheckSum);
-        }
-    }
-
-    public class DataGenerator
-    {
-        public static IEnumerable<object[]> GetNumbersPart1()
-        {
-            yield return new object[] { "5 1 9 5", 8 };
-            yield return new object[] { "7 5 3", 4 };
-            yield return new object[] { "2 4 6 8", 6 };
-        }
-
-        public static IEnumerable<object[]> GetNumbersPart2()
-        {
-            yield return new object[] { "5 9 2 8", 4 };
-            yield return new object[] { "9 4 7 3", 3 };
-            yield return new object[] { "3 8 6 5", 2 };
         }
     }
 }
