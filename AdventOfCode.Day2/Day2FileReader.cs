@@ -7,7 +7,7 @@ namespace AdventOfCode.Day2
     {
         public static IEnumerable<string> ReadLinesFromFile(string fileName)
         {
-            var pathToFile = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, $@"DataInputFiles\{fileName}");
+            var pathToFile = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, $@"DataInputFiles/{fileName}");
 
             foreach (var line in File.ReadAllLines(pathToFile))
             {
