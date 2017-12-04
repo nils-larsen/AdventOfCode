@@ -4,8 +4,8 @@ namespace AdventOfCode.Day2.Tests
 {
     public class TestDay2
     {
-        CalculatePart1 _part1Calculator;
-        CalculatePart2 _part2Calculator;
+        readonly CalculatePart1 _part1Calculator;
+        readonly CalculatePart2 _part2Calculator;
 
         public TestDay2()
         {

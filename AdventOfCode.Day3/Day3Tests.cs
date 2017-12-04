@@ -5,7 +5,7 @@ namespace AdventOfCode.Day3.Tests
 {
     public class TestDay3
     {
-        Day3 _day3;
+        readonly Day3 _day3;
 
         public TestDay3()
         {
@@ -26,17 +26,6 @@ namespace AdventOfCode.Day3.Tests
         [InlineData(23, 2)]
         [InlineData(1024, 31)]
         public void TestPart1(int input, int expectedResult)
-        {
-            var actualResult = _day3.Solve(input);
-            Assert.Equal(expectedResult, actualResult);
-        }
-
-        [Theory]
-        [InlineData(1, 1)]
-        [InlineData(2, 1)]
-        [InlineData(3, 2)]
-        [InlineData(4, 4)]
-        public void TestPart2(int input, int expectedResult)
         {
             var actualResult = _day3.Solve(input);
             Assert.Equal(expectedResult, actualResult);
