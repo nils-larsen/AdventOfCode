@@ -4,23 +4,24 @@ namespace AdventOfCode.Day2
 {
     public class Day2
     {
-        public int AddCheckSum(string input)
+        public int CalculateChecksum(string input)
         {
             var orderedInput = input
-               .Split()
-               .Select(int.Parse)
-               .OrderBy(x => x);
+                .Split()
+                .Select(int.Parse)
+                .OrderBy(x => x);
 
             return orderedInput.Last() - orderedInput.First();
         }
 
-        public int AddCheckSumEven(string input)
+        public int CalculateEvenlyDivisibleChecksum(string input)
         {
             var values = input
-               .Split()
-               .Select(int.Parse);
+                .Split()
+                .Select(int.Parse)
+                .ToList();
 
-            int numberOfValues = values.Count();
+            int numberOfValues = values.Count;
 
             for (var i = 0; i < numberOfValues; i++)
             {
@@ -29,9 +30,9 @@ namespace AdventOfCode.Day2
                     if (i == j)
                         continue;
 
-                    if (values.ElementAt(i) % values.ElementAt(j) == 0)
+                    if (values[i] % values[j] == 0)
                     {
-                        return values.ElementAt(i) / values.ElementAt(j);
+                        return values[i] / values[j];
                     }
                 }
             }

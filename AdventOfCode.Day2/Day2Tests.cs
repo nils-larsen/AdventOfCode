@@ -18,7 +18,7 @@ namespace AdventOfCode.Day2
         {
             var actual = File
                 .ReadAllLines("Day2.txt")
-                .Select(x => _day2.AddCheckSum(x))
+                .Select(x => _day2.CalculateChecksum(x))
                 .Sum();
 
             Assert.Equal(39126, actual);
@@ -29,7 +29,7 @@ namespace AdventOfCode.Day2
         {
             var actual = File
                 .ReadAllLines("Day2.txt")
-                .Select(x => _day2.AddCheckSumEven(x))
+                .Select(x => _day2.CalculateEvenlyDivisibleChecksum(x))
                 .Sum();
 
             Assert.Equal(258, actual);
@@ -41,7 +41,7 @@ namespace AdventOfCode.Day2
         [InlineData("2 4 6 8", 6)]
         public void TestSampleDataPart1(string input, int expectedResult)
         {
-            var actual = _day2.AddCheckSum(input);
+            var actual = _day2.CalculateChecksum(input);
 
             Assert.Equal(expectedResult, actual);
         }
@@ -52,7 +52,7 @@ namespace AdventOfCode.Day2
         [InlineData("3 8 6 5", 2)]
         public void TestSampleDataPart2(string input, int expectedResult)
         {
-            var actual = _day2.AddCheckSumEven(input);
+            var actual = _day2.CalculateEvenlyDivisibleChecksum(input);
 
             Assert.Equal(expectedResult, actual);
         }
@@ -63,7 +63,7 @@ namespace AdventOfCode.Day2
             string[] input = { "5 1 9 5", "7 5 3", "2 4 6 8" };
 
             var actual = input
-                .Select(x => _day2.AddCheckSum(x))
+                .Select(x => _day2.CalculateChecksum(x))
                 .Sum();
 
             Assert.Equal(18, actual);
@@ -75,7 +75,7 @@ namespace AdventOfCode.Day2
             string[] input = { "5 9 2 8", "9 4 7 3", "3 8 6 5" };
 
             var actual = input
-                .Select(x => _day2.AddCheckSumEven(x))
+                .Select(x => _day2.CalculateEvenlyDivisibleChecksum(x))
                 .Sum();
 
             Assert.Equal(9, actual);

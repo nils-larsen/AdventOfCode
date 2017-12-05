@@ -15,11 +15,11 @@ namespace AdventOfCode.Day4
 
         public bool ValidPassphraseAnagram(string input)
         {
-            var lineWithSortedWords = input
-                .Split(" ")
+            var sortedWords = input
+                .Split()
                 .Select(w => new string(w.OrderBy(c => c).ToArray()));
 
-            return ValidPassphrase(string.Join(" ", lineWithSortedWords));
+            return ValidPassphrase(string.Join(" ", sortedWords));
         }
     }
 }
