@@ -1,13 +1,14 @@
 ﻿using System.IO;
 
-namespace AdventOfCode.Day4
+namespace AdventOfCode.Day5
 {
     public static class FileReader
     {
-        public static string[] ReadFile(string fileName)
+        public static string ReadFile(string fileName)
         {
             var pathToFile = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, $@"DataInputFiles/{fileName}");
-            return File.ReadAllLines(pathToFile);
+
+            return File.ReadAllText(pathToFile);
         }
     }
 }
