@@ -15,4 +15,12 @@
   <ItemGroup>
     <Compile Remove="Day4Part2Tests.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Day4.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Day4.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

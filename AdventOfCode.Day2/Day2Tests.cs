@@ -1,38 +1,38 @@
+using System.IO;
+using System.Linq;
 using Xunit;
 
-namespace AdventOfCode.Day2.Tests
+namespace AdventOfCode.Day2
 {
     public class TestDay2
     {
-        readonly CalculatePart1 _part1Calculator;
-        readonly CalculatePart2 _part2Calculator;
+        readonly Day2 _day2;
 
         public TestDay2()
         {
-            _part1Calculator = new CalculatePart1();
-            _part2Calculator = new CalculatePart2();
+            _day2 = new Day2();
         }
 
         [Fact]
-        public void GetResult_Part1()
+        public void Part1_GetResult()
         {
-            foreach (string line in FileReader.ReadLinesFromFile("Day2.txt"))
-            {
-                _part1Calculator.AddChecksumOnEachLine(line);
-            }
-            var actualCheckSum = _part1Calculator.CalculateSum();
-            Assert.Equal(39126, actualCheckSum);
+            var actual = File
+                .ReadAllLines("Day2.txt")
+                .Select(x => _day2.AddCheckSum(x))
+                .Sum();
+
+            Assert.Equal(39126, actual);
         }
 
         [Fact]
-        public void GetResult_Part2()
+        public void Part2_GetResult()
         {
-            foreach (string line in FileReader.ReadLinesFromFile("Day2.txt"))
-            {
-                _part2Calculator.AddSumFromEvenDivisors(line);
-            }
-            var actualSum = _part2Calculator.CalculateSum();
-            Assert.Equal(258, actualSum);
+            var actual = File
+                .ReadAllLines("Day2.txt")
+                .Select(x => _day2.AddCheckSumEven(x))
+                .Sum();
+
+            Assert.Equal(258, actual);
         }
 
         [Theory]
@@ -41,9 +41,9 @@ namespace AdventOfCode.Day2.Tests
         [InlineData("2 4 6 8", 6)]
         public void TestSampleDataPart1(string input, int expectedResult)
         {
-            _part1Calculator.AddChecksumOnEachLine(input);
-            var actualSum = _part1Calculator.CalculateSum();
-            Assert.Equal(expectedResult, actualSum);
+            var actual = _day2.AddCheckSum(input);
+
+            Assert.Equal(expectedResult, actual);
         }
 
         [Theory]
@@ -52,19 +52,33 @@ namespace AdventOfCode.Day2.Tests
         [InlineData("3 8 6 5", 2)]
         public void TestSampleDataPart2(string input, int expectedResult)
         {
-            _part2Calculator.AddSumFromEvenDivisors(input);
-            var actualSum = _part2Calculator.CalculateSum();
-            Assert.Equal(expectedResult, actualSum);
+            var actual = _day2.AddCheckSumEven(input);
+
+            Assert.Equal(expectedResult, actual);
         }
 
         [Fact]
         public void TestWholePart1()
         {
-            _part1Calculator.AddChecksumOnEachLine("5 1 9 5");
-            _part1Calculator.AddChecksumOnEachLine("7 5 3");
-            _part1Calculator.AddChecksumOnEachLine("2 4 6 8");
-            var actualCheckSum = _part1Calculator.CalculateSum();
-            Assert.Equal(18, actualCheckSum);
+            string[] input = { "5 1 9 5", "7 5 3", "2 4 6 8" };
+
+            var actual = input
+                .Select(x => _day2.AddCheckSum(x))
+                .Sum();
+
+            Assert.Equal(18, actual);
+        }
+
+        [Fact]
+        public void TestWholePart2()
+        {
+            string[] input = { "5 9 2 8", "9 4 7 3", "3 8 6 5" };
+
+            var actual = input
+                .Select(x => _day2.AddCheckSumEven(x))
+                .Sum();
+
+            Assert.Equal(9, actual);
         }
     }
 }

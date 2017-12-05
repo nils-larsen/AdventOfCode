@@ -1,7 +1,8 @@
-using Xunit;
+using System.IO;
 using System.Linq;
+using Xunit;
 
-namespace AdventOfCode.Day4.Tests
+namespace AdventOfCode.Day4
 {
     public class TestDay4
     {
@@ -15,7 +16,7 @@ namespace AdventOfCode.Day4.Tests
         [Fact]
         public void Part1_GetResult()
         {
-            var actual = FileReader.ReadFile("Day4.txt")
+            var actual = File.ReadAllLines("Day4.txt")
                 .Select(x => _day4.ValidPassphrase(x))
                 .Count(x => x == true);
 
@@ -25,7 +26,8 @@ namespace AdventOfCode.Day4.Tests
         [Fact]
         public void Part2_GetResult()
         {
-            var actual = FileReader.ReadFile("Day4.txt")
+
+            var actual = File.ReadAllLines("Day4.txt")
                 .Select(x => _day4.ValidPassphraseAnagram(x))
                 .Count(x => x == true);
 
@@ -38,8 +40,8 @@ namespace AdventOfCode.Day4.Tests
         [InlineData("aa bb cc dd aaa", true)]
         public void Part1_TestValidPassphrases(string input, bool expected)
         {
-
             var actual = _day4.ValidPassphrase(input);
+
             Assert.Equal(expected, actual);
         }
 
@@ -52,6 +54,7 @@ namespace AdventOfCode.Day4.Tests
         public void Part2_TestValidPassphrases(string input, bool expected)
         {
             var actual = _day4.ValidPassphraseAnagram(input);
+
             Assert.Equal(expected, actual);
         }
     }

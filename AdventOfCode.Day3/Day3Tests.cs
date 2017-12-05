@@ -1,7 +1,6 @@
-using System;
 using Xunit;
 
-namespace AdventOfCode.Day3.Tests
+namespace AdventOfCode.Day3
 {
     public class TestDay3
     {
@@ -13,11 +12,11 @@ namespace AdventOfCode.Day3.Tests
         }
 
         [Fact]
-        public void GetResultPart1()
+        public void Part1_GetResult()
         {
             var actualResult = _day3.Solve(277678);
-            Assert.Equal(475, actualResult);
 
+            Assert.Equal(475, actualResult);
         }
 
         [Theory]
@@ -28,6 +27,7 @@ namespace AdventOfCode.Day3.Tests
         public void TestPart1(int input, int expectedResult)
         {
             var actualResult = _day3.Solve(input);
+
             Assert.Equal(expectedResult, actualResult);
         }
     }

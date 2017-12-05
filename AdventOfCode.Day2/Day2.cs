@@ -1,33 +1,25 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 namespace AdventOfCode.Day2
 {
     public class Day2
     {
-        protected List<int> _day2 = new List<int>();
-
-        public int CalculateSum()
+        public int AddCheckSum(string input)
         {
-            return _day2.Sum();
+            var orderedInput = input
+               .Split()
+               .Select(int.Parse)
+               .OrderBy(x => x);
+
+            return orderedInput.Last() - orderedInput.First();
         }
-    }
 
-    public class CalculatePart1 : Day2
-    {
-        public void AddChecksumOnEachLine(string input)
+        public int AddCheckSumEven(string input)
         {
-            var orderedInput = input.Split(" ").Select(int.Parse).OrderBy(x => x);
-            var lineCheckSum = orderedInput.Last() - orderedInput.First();
-            _day2.Add(lineCheckSum);
-        }
-    }
+            var values = input
+               .Split()
+               .Select(int.Parse);
 
-    public class CalculatePart2 : Day2
-    {
-        public void AddSumFromEvenDivisors(string input)
-        {
-            var values = input.Split(" ").Select(int.Parse);
             int numberOfValues = values.Count();
 
             for (var i = 0; i < numberOfValues; i++)
@@ -39,11 +31,11 @@ namespace AdventOfCode.Day2
 
                     if (values.ElementAt(i) % values.ElementAt(j) == 0)
                     {
-                        _day2.Add(values.ElementAt(i) / values.ElementAt(j));
-                        return;
+                        return values.ElementAt(i) / values.ElementAt(j);
                     }
                 }
             }
+            return 0;
         }
     }
 }

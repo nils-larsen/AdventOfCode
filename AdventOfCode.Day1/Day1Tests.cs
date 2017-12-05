@@ -1,7 +1,8 @@
+using System.IO;
 using System.Linq;
 using Xunit;
 
-namespace AdventOfCode.Day1.Tests
+namespace AdventOfCode.Day1
 {
     public class TestDay1
     {
@@ -13,25 +14,25 @@ namespace AdventOfCode.Day1.Tests
         }
 
         [Fact]
-        public void GetResultToPart1()
+        public void Part1_GetResult()
         {
-            var input = FileReader.ReadFile("Day1.txt");
+            var input = File.ReadAllText("Day1.txt");
 
             var workOn = input.Select(x => int.Parse(x.ToString())).ToList();
-            var result = _day1.ReviewSequenceBasedOnNextDigit(workOn);
+            var actual = _day1.ReviewSequenceBasedOnNextDigit(workOn);
 
-            Assert.Equal(1182, result);
+            Assert.Equal(1182, actual);
         }
 
         [Fact]
-        public void GetResultToPart2()
+        public void Part2_GetResult()
         {
-            var input = FileReader.ReadFile("Day1.txt");
+            var input = File.ReadAllText("Day1.txt");
 
             var workOn = input.Select(x => int.Parse(x.ToString())).ToList();
-            var result = _day1.ReviewSequenceBasedOnHalfWayAround(workOn);
+            var actual = _day1.ReviewSequenceBasedOnHalfWayAround(workOn);
 
-            Assert.Equal(1152, result);
+            Assert.Equal(1152, actual);
         }
 
         [Theory]
@@ -39,12 +40,12 @@ namespace AdventOfCode.Day1.Tests
         [InlineData("1111", 4)]
         [InlineData("1234", 0)]
         [InlineData("91212129", 9)]
-        public void TestPart1(string input, int expectedResult)
+        public void TestPart1(string input, int expected)
         {
             var workOn = input.Select(x => int.Parse(x.ToString())).ToList();
-            var actualResult = _day1.ReviewSequenceBasedOnNextDigit(workOn);
+            var actual = _day1.ReviewSequenceBasedOnNextDigit(workOn);
 
-            Assert.Equal(expectedResult, actualResult);
+            Assert.Equal(expected, actual);
         }
 
         [Theory]
@@ -53,13 +54,12 @@ namespace AdventOfCode.Day1.Tests
         [InlineData("123425", 4)]
         [InlineData("123123", 12)]
         [InlineData("12131415", 4)]
-        public void TestPart2(string input, int expectedResult)
+        public void TestPart2(string input, int expected)
         {
             var workOn = input.Select(x => int.Parse(x.ToString())).ToList();
-            var actualResult = _day1.ReviewSequenceBasedOnHalfWayAround(workOn);
+            var actual = _day1.ReviewSequenceBasedOnHalfWayAround(workOn);
 
-            Assert.Equal(expectedResult, actualResult);
+            Assert.Equal(expected, actual);
         }
-
     }
 }

@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace AdventOfCode.Day4
 {
@@ -7,7 +7,7 @@ namespace AdventOfCode.Day4
     {
         public bool ValidPassphrase(string input)
         {
-            var words = input.Split(" ");
+            var words = input.Split();
             HashSet<string> hashSet = new HashSet<string>();
 
             return !(words.Any(x => !hashSet.Add(x)));
@@ -20,7 +20,6 @@ namespace AdventOfCode.Day4
                 .Select(w => new string(w.OrderBy(c => c).ToArray()));
 
             return ValidPassphrase(string.Join(" ", lineWithSortedWords));
-
         }
     }
 }

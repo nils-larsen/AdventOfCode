@@ -1,6 +1,7 @@
+using System.IO;
 using Xunit;
 
-namespace AdventOfCode.Day5.Tests
+namespace AdventOfCode.Day5
 {
     public class TestDay5
     {
@@ -14,16 +15,18 @@ namespace AdventOfCode.Day5.Tests
         [Fact]
         public void Part1_GetResult()
         {
-            var input = FileReader.ReadFile("Day5.txt");
+            var input = File.ReadAllText("Day5.txt");
             var actual = _day5.SolveJumps(input);
+
             Assert.Equal(394829, actual);
         }
 
         [Fact]
         public void Part2_GetResult()
         {
-            var input = FileReader.ReadFile(("Day5.txt"));
+            var input = File.ReadAllText("Day5.txt");
             var actual = _day5.SolveStrangerJumps(input);
+
             Assert.Equal(31150702, actual);
         }
 
@@ -32,6 +35,7 @@ namespace AdventOfCode.Day5.Tests
         public void Test_Part1(string input, int expected)
         {
             var actual = _day5.SolveJumps(input);
+
             Assert.Equal(expected, actual);
         }
 
@@ -40,6 +44,7 @@ namespace AdventOfCode.Day5.Tests
         public void Test_part2(string input, int expected)
         {
             var actual = _day5.SolveStrangerJumps(input);
+
             Assert.Equal(expected, actual);
         }
     }
