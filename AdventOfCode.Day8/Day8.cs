@@ -35,7 +35,7 @@ namespace AdventOfCode.Day8
                 .First(x => x.Name == secondRegister)
                 .Value;
 
-            if (LogicOperator.Compare(currentValue, compareValue, logicOperator))
+            if (Operators.Compare(currentValue, compareValue, logicOperator))
             {
                 var register = _registers
                     .Select(x => x)
@@ -49,6 +49,7 @@ namespace AdventOfCode.Day8
                 ChangeHighestValueIfConditionIsMet(register.Value);
             }
         }
+
         public List<Register> CheckRegister()
         {
             return _registers;
@@ -69,36 +70,6 @@ namespace AdventOfCode.Day8
         void ChangeHighestValueIfConditionIsMet(int value)
         {
             HighestValue = (value > HighestValue) ? value : HighestValue;
-        }
-    }
-
-    public class Register
-    {
-        public string Name { get; set; }
-        public int Value { get; set; }
-    }
-
-    public static class LogicOperator
-    {
-        public static bool Compare(int currentValue, int compareValue, string logicOperator)
-        {
-            switch (logicOperator)
-            {
-                case ">":
-                    return currentValue > compareValue;
-                case "<":
-                    return currentValue < compareValue;
-                case ">=":
-                    return currentValue >= compareValue;
-                case "<=":
-                    return currentValue <= compareValue;
-                case "==":
-                    return currentValue == compareValue;
-                case "!=":
-                    return currentValue != compareValue;
-                default:
-                    return false;
-            }
         }
     }
 }
