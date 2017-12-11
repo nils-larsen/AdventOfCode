@@ -3,20 +3,41 @@ using System.Linq;
 
 namespace AdventOfCode.Day7
 {
-    public class Day7
+    public class Node
     {
-        public string FindBottomProgram(IEnumerable<string> input)
+        public string Name { get; private set; }
+        public int Weight { get; private set; }
+        public List<string> NameOfChildren { get; private set; }
+        public List<Node> Children { get; set; }
+
+        public Node(string[] components)
         {
-            var linesWithParents = input.Select(x => x).Where(x => x.Contains("->"));
+            Name = components[0];
+            Weight = int.Parse(components[1].Split('(', ')')[1]);
+            NameOfChildren = components
+                .Select(x => x.Trim(','))
+                .Skip(3)
+                .ToList();
+        }
+    }
 
-            var parents = linesWithParents.Select(x => x.Split().First());
+    public class Tree
+    {
+        public List<Node> Nodes { get; private set; }
 
-            var children = string
-                .Join(" ", linesWithParents
-                      .Select(x => string.Join(" ", x.Replace(",", "").Split().Skip(3))))
-                .Split();
+        public Tree(IEnumerable<string> input)
+        {
+            Nodes = input.Select(x => new Node(x.Split())).ToList();
 
-            return parents.Except(children).First();
+            Nodes.ForEach(node =>
+                          node.Children = Nodes
+                          .Where(x => node.NameOfChildren.Any(y => y.Contains(x.Name)))
+                          .ToList());
+        }
+
+        public Node GetRoot()
+        {
+            return Nodes.First(node => !Nodes.Any(x => x.NameOfChildren.Contains(node.Name)));
         }
     }
 }
