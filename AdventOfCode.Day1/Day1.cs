@@ -1,37 +1,34 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace AdventOfCode.Day1
 {
-    public class Day1
+    public static class InverseCaptcha
     {
-        public int ReviewSequenceBasedOnNextDigit(IList<int> sequence)
+        public static int ReviewSequenceBasedOnNextDigit(this IList<int> sequence)
         {
-            return CalculateSum(sequence, 1);
+            return sequence.CalculateSum(1);
         }
 
-        public int ReviewSequenceBasedOnHalfWayAround(IList<int> sequence)
+        public static int ReviewSequenceBasedOnHalfWayAround(this IList<int> sequence)
         {
-            return CalculateSum(sequence, sequence.Count / 2);
+            return sequence.CalculateSum(sequence.Count / 2);
         }
 
-        private int CalculateSum(IList<int> sequence, int idxAhead)
+        public static IList<int> FormatInput(this string input)
+        {
+            return input.Select(x => int.Parse(x.ToString())).ToList();
+        }
+
+        static int CalculateSum(this IList<int> sequence, int idxAhead)
         {
             var sum = 0;
             var sequenceLength = sequence.Count;
 
             for (var idx = 0; idx < sequenceLength; idx++)
             {
-                if (sequence[idx] == sequence[idxAhead])
-                {
+                if (sequence[idx] == sequence[(idx + idxAhead) % sequenceLength])
                     sum += sequence[idx];
-                }
-
-                idxAhead++;
-
-                if (idxAhead == sequenceLength)
-                {
-                    idxAhead = 0;
-                }
             }
             return sum;
         }

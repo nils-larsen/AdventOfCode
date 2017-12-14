@@ -2,19 +2,20 @@
 
 namespace AdventOfCode.Day2
 {
-    public class Day2
+    public static class Day2
     {
-        public int CalculateChecksum(string input)
+        public static int CalculateChecksum(this string input)
         {
             var orderedInput = input
                 .Split()
                 .Select(int.Parse)
-                .OrderBy(x => x);
+                .OrderBy(x => x)
+                .ToList();
 
             return orderedInput.Last() - orderedInput.First();
         }
 
-        public int CalculateEvenlyDivisibleChecksum(string input)
+        public static int CalculateEvenlyDivisibleChecksum(this string input)
         {
             var values = input
                 .Split()
@@ -27,10 +28,7 @@ namespace AdventOfCode.Day2
             {
                 for (var j = 0; j < numberOfValues; j++)
                 {
-                    if (i == j)
-                        continue;
-
-                    if (values[i] % values[j] == 0)
+                    if (values[i] % values[j] == 0 && i != j)
                     {
                         return values[i] / values[j];
                     }
