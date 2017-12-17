@@ -3,7 +3,7 @@ using FluentAssertions;
 
 namespace AdventOfCode.Day17
 {
-    public class UnitTest1
+    public class TestSpinlock
     {
         [Fact]
         public void Part1_GetResult()
