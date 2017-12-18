@@ -4,7 +4,7 @@ using FluentAssertions;
 
 namespace AdventOfCode.Day16
 {
-    public class UnitTest1
+    public class TestPermutation
     {
         [Fact]
         public void Part1_GetResult()
@@ -13,7 +13,7 @@ namespace AdventOfCode.Day16
                 .SetupPrograms('a', 'p')
                 .Dance(File.ReadAllText("Day16Input.txt"))
                 .Should()
-                .BeEquivalentTo("bijankplfgmeodhc");
+                .Be("bijankplfgmeodhc");
         }
 
         [Fact]
@@ -23,7 +23,7 @@ namespace AdventOfCode.Day16
                 .SetupPrograms('a', 'p')
                 .Dance(File.ReadAllText("Day16Input.txt"), 1000000000)
                 .Should()
-                .BeEquivalentTo("bpjahknliomefdgc");
+                .Be("bpjahknliomefdgc");
         }
 
         [Theory]
@@ -34,7 +34,7 @@ namespace AdventOfCode.Day16
                 .SetupPrograms('a', 'e')
                 .Dance(input)
                 .Should()
-                .BeEquivalentTo(expected);
+                .Be(expected);
         }
 
         [Theory]
@@ -45,7 +45,7 @@ namespace AdventOfCode.Day16
                 .SetupPrograms('a', 'e')
                 .Dance(input, 2)
                 .Should()
-                .BeEquivalentTo(expected);
+                .Be(expected);
         }
     }
 }

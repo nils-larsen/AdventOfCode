@@ -36,7 +36,7 @@ namespace AdventOfCode.Day16
             return programs.Join();
         }
 
-        private static void Spin(this IList<char> programs, string cmd)
+        static void Spin(this IList<char> programs, string cmd)
         {
             var number = cmd.Skip(1).Select(x => int.Parse(x.ToString())).ToInt();
 
@@ -47,29 +47,30 @@ namespace AdventOfCode.Day16
             programs.Reverse().Take(number);
         }
 
-        private static void Exchange(this IList<char> programs, string cmd)
+        static void Exchange(this IList<char> programs, string cmd)
         {
-            var list = FormatCommand(cmd);
-            programs.SwapByIndex(int.Parse(list[0]), int.Parse(list[1]));
+            var cmdList = FormatCommand(cmd);
+            programs.SwapByIndex(int.Parse(cmdList[0]), int.Parse(cmdList[1]));
         }
 
-        private static void Partner(this IList<char> programs, string cmd)
+        static void Partner(this IList<char> programs, string cmd)
         {
-            var list = FormatCommand(cmd);
-            programs.SwapByValue(Convert.ToChar(list[0]), Convert.ToChar(list[1]));
+            var cmdList = FormatCommand(cmd);
+            programs.SwapByValue(Convert.ToChar(cmdList[0]), Convert.ToChar(cmdList[1]));
         }
 
-        private static void SwapByIndex(this IList<char> programs, int indexA, int indexB)
+        static void SwapByIndex(this IList<char> programs, int indexA, int indexB)
         {
             var temp = programs[indexA];
             programs[indexA] = programs[indexB];
             programs[indexB] = temp;
         }
 
-        private static void SwapByValue(this IList<char> programs, char a, char b)
+        static void SwapByValue(this IList<char> programs, char a, char b)
         {
-            int indexA = 0;
-            int indexB = 0;
+            var indexA = 0;
+            var indexB = 0;
+
             for (var i = 0; i < programs.Count; i++)
             {
                 if (programs[i] == a)
@@ -81,7 +82,7 @@ namespace AdventOfCode.Day16
             programs.SwapByIndex(indexA, indexB);
         }
 
-        private static void MoveLastItemToFront(this IList<char> programs)
+        static void MoveLastItemToFront(this IList<char> programs)
         {
             var item = programs.Last();
             var length = programs.Count;
