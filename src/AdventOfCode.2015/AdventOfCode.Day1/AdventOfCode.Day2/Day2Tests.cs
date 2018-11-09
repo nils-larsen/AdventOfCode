@@ -41,7 +41,6 @@ namespace AdventOfCode.Day2
                  .CalculateAmountOfPaper()
                  .Should()
                  .Be(expected);
-                             
         }
 
         [Theory]
@@ -53,7 +52,6 @@ namespace AdventOfCode.Day2
                  .CalculateAmountOfRibbon()
                  .Should()
                  .Be(expected);
-
         }
     }
 
