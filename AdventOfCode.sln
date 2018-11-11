@@ -53,9 +53,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AdventOfCode.2015", "Advent
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day1", "src\AdventOfCode.2015\AdventOfCode.Day1\AdventOfCode.Day1.csproj", "{5DF96A2A-C5B5-4D2E-9C24-C01D20E8E279}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day2", "src\AdventOfCode.2015\AdventOfCode.Day1\AdventOfCode.Day2\AdventOfCode.Day2.csproj", "{9C9BD909-A4ED-47F9-8632-54ECAF6F5F47}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day2", "src\AdventOfCode.2015\AdventOfCode.Day2\AdventOfCode.Day2.csproj", "{9C9BD909-A4ED-47F9-8632-54ECAF6F5F47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day3", "src\AdventOfCode.2015\AdventOfCode.Day1\AdventOfCode.Day3\AdventOfCode.Day3.csproj", "{A1199E18-6F83-4B1F-8A1D-7B15769DC5D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day3", "src\AdventOfCode.2015\AdventOfCode.Day3\AdventOfCode.Day3.csproj", "{A1199E18-6F83-4B1F-8A1D-7B15769DC5D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -22,6 +22,37 @@
     <None Remove="AdventOfCode.Day2\obj\AdventOfCode.Day2.csproj.nuget.g.targets" />
     <None Remove="AdventOfCode.Day2\obj\project.assets.json" />
     <None Remove="AdventOfCode.Day2\obj\Debug\netcoreapp2.1\AdventOfCode.Day2.assets.cache" />
+    <None Remove="AdventOfCode.Day2\bin\Debug\netcoreapp2.1\AdventOfCode.Day2.deps.json" />
+    <None Remove="AdventOfCode.Day2\Day2Input.txt" />
+    <None Remove="AdventOfCode.Day2\obj\AdventOfCode.Day2.csproj.proj-info.targets" />
+    <None Remove="AdventOfCode.Day2\obj\fsac.cache" />
+    <None Remove="AdventOfCode.Day2\obj\Debug\netcoreapp2.1\AdventOfCode.Day2.AssemblyInfoInputs.cache" />
+    <None Remove="AdventOfCode.Day2\obj\Debug\netcoreapp2.1\AdventOfCode.Day2.csproj.CoreCompileInputs.cache" />
+    <None Remove="AdventOfCode.Day2\obj\Debug\netcoreapp2.1\AdventOfCode.Day2.csproj.FileListAbsolute.txt" />
+    <None Remove="AdventOfCode.Day2\obj\Debug\netcoreapp2.1\AdventOfCode.Day2.csprojAssemblyReference.cache" />
+    <None Remove="AdventOfCode.Day2\obj\Debug\netcoreapp2.1\AdventOfCode.Day2.dll" />
+    <None Remove="AdventOfCode.Day2\obj\Debug\netcoreapp2.1\AdventOfCode.Day2.pdb" />
+    <None Remove="AdventOfCode.Day2\obj\Debug\netcoreapp2.1\project.razor.json" />
+    <None Remove="AdventOfCode.Day3\bin\Debug\netcoreapp2.1\AdventOfCode.Day3.deps.json" />
+    <None Remove="AdventOfCode.Day3\Day3Input.txt" />
+    <None Remove="AdventOfCode.Day3\bin\Debug\netcoreapp2.1\Day3Input.txt" />
+    <None Remove="AdventOfCode.Day3\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll" />
+    <None Remove="AdventOfCode.Day3\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll" />
+    <None Remove="AdventOfCode.Day3\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll" />
+    <None Remove="AdventOfCode.Day3\obj\AdventOfCode.Day3.csproj.nuget.cache" />
+    <None Remove="AdventOfCode.Day3\obj\AdventOfCode.Day3.csproj.nuget.g.props" />
+    <None Remove="AdventOfCode.Day3\obj\AdventOfCode.Day3.csproj.nuget.g.targets" />
+    <None Remove="AdventOfCode.Day3\obj\AdventOfCode.Day3.csproj.proj-info.targets" />
+    <None Remove="AdventOfCode.Day3\obj\fsac.cache" />
+    <None Remove="AdventOfCode.Day3\obj\project.assets.json" />
+    <None Remove="AdventOfCode.Day3\obj\Debug\netcoreapp2.1\AdventOfCode.Day3.AssemblyInfoInputs.cache" />
+    <None Remove="AdventOfCode.Day3\obj\Debug\netcoreapp2.1\AdventOfCode.Day3.assets.cache" />
+    <None Remove="AdventOfCode.Day3\obj\Debug\netcoreapp2.1\AdventOfCode.Day3.csproj.CoreCompileInputs.cache" />
+    <None Remove="AdventOfCode.Day3\obj\Debug\netcoreapp2.1\AdventOfCode.Day3.csproj.FileListAbsolute.txt" />
+    <None Remove="AdventOfCode.Day3\obj\Debug\netcoreapp2.1\AdventOfCode.Day3.csprojAssemblyReference.cache" />
+    <None Remove="AdventOfCode.Day3\obj\Debug\netcoreapp2.1\AdventOfCode.Day3.dll" />
+    <None Remove="AdventOfCode.Day3\obj\Debug\netcoreapp2.1\AdventOfCode.Day3.pdb" />
+    <None Remove="AdventOfCode.Day3\obj\Debug\netcoreapp2.1\project.razor.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Day1Input.txt">
@@ -30,5 +61,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="AdventOfCode.Day2\UnitTest1.cs" />
+    <Compile Remove="AdventOfCode.Day2\Day2Tests.cs" />
+    <Compile Remove="AdventOfCode.Day2\obj\Debug\netcoreapp2.1\AdventOfCode.Day2.AssemblyInfo.cs" />
+    <Compile Remove="AdventOfCode.Day2\obj\Debug\netcoreapp2.1\AdventOfCode.Day2.Program.cs" />
+    <Compile Remove="AdventOfCode.Day3\Day3Tests.cs" />
+    <Compile Remove="AdventOfCode.Day3\Santa.cs" />
+    <Compile Remove="AdventOfCode.Day3\obj\Debug\netcoreapp2.1\AdventOfCode.Day3.AssemblyInfo.cs" />
+    <Compile Remove="AdventOfCode.Day3\obj\Debug\netcoreapp2.1\AdventOfCode.Day3.Program.cs" />
   </ItemGroup>
 </Project>
