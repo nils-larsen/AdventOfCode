@@ -15,7 +15,8 @@ namespace AdventOfCode.Day5
         [Fact]
         public void Part1_GetResult()
         {
-            var input = File.ReadAllText("Day5.txt");
+            var input = File.ReadAllText("Day5.txt")
+                            .Replace("\n", "");
             var actual = _day5.SolveJumps(input);
 
             Assert.Equal(394829, actual);
@@ -24,7 +25,8 @@ namespace AdventOfCode.Day5
         [Fact]
         public void Part2_GetResult()
         {
-            var input = File.ReadAllText("Day5.txt");
+            var input = File.ReadAllText("Day5.txt")
+                            .Replace("\n", "");
             var actual = _day5.SolveStrangerJumps(input);
 
             Assert.Equal(31150702, actual);
